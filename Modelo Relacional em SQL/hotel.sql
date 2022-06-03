@@ -8,7 +8,7 @@ ULTIMO_LAUDO date
 create table ANDARES(
 predio integer,
 numero integer,
-foreign key (predio) references PREDIO(ID),
+foreign key (predio) references PREDIO(ID) on delete cascade on update cascade,
 primary key(predio, numero)
 );
 
@@ -23,8 +23,8 @@ predio integer,
 andar integer,
 numero integer,
 categoria varchar (20) not null,
-foreign key (categoria) references CATEGORIAS(tipo),
-foreign key (predio, andar) references ANDARES(predio, numero),
+foreign key (categoria) references CATEGORIAS(tipo) on update cascade,
+foreign key (predio, andar) references ANDARES(predio, numero) on delete cascade on update cascade,
 primary key (predio, andar, numero)
 );
 
@@ -60,6 +60,13 @@ nome varchar(40),
 telefone char(15)
 );
 
+create table CLIENTES(
+CPF char(12),
+foreign key (CPF) references PESSOAS(CPF),
+primary key (CPF),
+cadastro date
+);
+
 create table ESCOLARIDADES(
 nivel integer,
 descricao varchar(80) primary key
@@ -88,5 +95,21 @@ formacao varchar(80),
 foreign key (formacao) references ESCOLARIDADES(descricao),
 primary key (CPF, formacao)
 );
+
+create table GERENTES(
+CPF char(12),
+foreign key (CPF) references FUNCIONARIOS(CPF),
+primary key (CPF)
+);
+
+create table ATENDENTES(
+CPF char(12),
+foreign key (CPF) references FUNCIONARIOS(CPF),
+avaliacao float,
+primary key (CPF)
+);
+
+
+
 
 
