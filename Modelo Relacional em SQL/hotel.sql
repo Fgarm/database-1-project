@@ -33,7 +33,6 @@ horas_diarias integer
 create table FUNCIONARIOS(
 CPF char(12),
 foreign key (CPF) references PESSOAS(CPF) on update cascade on delete cascade,
-id integer,
 salario float,
 id_contrato integer unique,
 horario char(15),
@@ -56,6 +55,7 @@ primary key (CPF)
 alter table FUNCIONARIOS
 ADD gerente char(12),
 ADD foreign key (gerente) references GERENTES(CPF);
+
 create table ATENDENTES(
 CPF char(12),
 foreign key (CPF) references FUNCIONARIOS(CPF) on update cascade on delete cascade,
