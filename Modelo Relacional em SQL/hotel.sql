@@ -1,46 +1,47 @@
-# disponível em https://github.com/Fgarm/database-1-project/
+-- disponível em https://github.com/Fgarm/database-1-project/
 
 drop database hotel_trabalho_guilherme;
 create database hotel_trabalho_guilherme;
 use hotel_trabalho_guilherme;
 
 create table PESSOAS(
-CPF char(12) primary key,
+CPF char(14) primary key,
 nome varchar(40),
-telefone char(15)
+telefone char(15),
+nascimento date
 );
 
 create table CLIENTES(
-CPF char(12),
+CPF char(14),
 foreign key (CPF) references PESSOAS(CPF) on update cascade on delete cascade,
 primary key (CPF),
 cadastro date
 );
 
 create table ESCOLARIDADES(
-nivel integer,
+nivel char(20),
 descricao varchar(80) primary key
 );
 
 create table HORARIOS(
-tipo char(15),
+tipo char(25),
 primary key (tipo),
 entrada integer,
 saida integer,
-horas_diarias integer
+horas_diarias integer not null
 );
 
 create table FUNCIONARIOS(
-CPF char(12),
+CPF char(14),
 foreign key (CPF) references PESSOAS(CPF) on update cascade on delete cascade,
 salario float,
 id_contrato integer unique,
-horario char(15),
+horario char(25),
 foreign key (horario) references HORARIOS(tipo)
 );
 
 create table FUNCIONARIO_FORMACAO(
-CPF char(12),
+CPF char(14),
 foreign key (CPF) references FUNCIONARIOS(CPF),
 formacao varchar(80),
 foreign key (formacao) references ESCOLARIDADES(descricao),
@@ -48,16 +49,16 @@ primary key (CPF, formacao)
 );
 
 create table GERENTES(
-CPF char(12),
+CPF char(14),
 foreign key (CPF) references FUNCIONARIOS(CPF) on update cascade on delete cascade,
 primary key (CPF)
 );
 alter table FUNCIONARIOS
-ADD gerente char(12),
+ADD gerente char(14),
 ADD foreign key (gerente) references GERENTES(CPF);
 
 create table ATENDENTES(
-CPF char(12),
+CPF char(14),
 foreign key (CPF) references FUNCIONARIOS(CPF) on update cascade on delete cascade,
 avaliacao float,
 primary key (CPF)
@@ -124,9 +125,9 @@ foreign key (ID) references MOBILIA(ID)
 create table RESERVAS(
 ID integer auto_increment,
 primary key (ID),
-cliente char(12) not null,
+cliente char(14) not null,
 foreign key (cliente) references CLIENTES(CPF),
-atendente char(12) not null,
+atendente char(14) not null,
 foreign key (atendente) references ATENDENTES(CPF),
 entrada date,
 saida date,
