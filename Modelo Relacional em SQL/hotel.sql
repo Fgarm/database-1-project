@@ -26,8 +26,8 @@ descricao varchar(80) primary key
 create table HORARIOS(
 tipo char(25),
 primary key (tipo),
-entrada integer,
-saida integer,
+entrada char(8),
+saida char(8),
 horas_diarias integer not null
 );
 
@@ -35,7 +35,7 @@ create table FUNCIONARIOS(
 CPF char(14),
 foreign key (CPF) references PESSOAS(CPF) on update cascade on delete cascade,
 salario float,
-id_contrato integer unique,
+id_contrato char(7) unique,
 horario char(25),
 foreign key (horario) references HORARIOS(tipo)
 );
