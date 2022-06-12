@@ -68,7 +68,7 @@ create table PREDIOS(
 ID integer auto_increment primary key,
 INAUGURACAO date,
 ULTIMO_LAUDO date,
-gerente char(12) not null,
+gerente char(14) not null,
 foreign key (gerente) references GERENTES(CPF)
 );
 
@@ -125,7 +125,7 @@ modelo varchar(60),
 create table RESERVAS(
 ID integer auto_increment,
 primary key (ID),
-cliente char(14) not null,
+cliente char(15) not null,
 foreign key (cliente) references CLIENTES(CPF),
 atendente char(14) not null,
 foreign key (atendente) references ATENDENTES(CPF),

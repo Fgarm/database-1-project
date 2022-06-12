@@ -36,13 +36,21 @@ insert into PESSOAS (CPF, nome, telefone, nascimento) values ('287.023.050-89', 
 insert into PESSOAS (CPF, nome, telefone, nascimento) values ('501.259.410-05', 'Timoteo Ferrieroi', '45 6303-0213', '1966-12-05');
 
 insert into CLIENTES(CPF, cadastro) values ('218.322.990-07', '2000-06-04'), ('542.599.910-00', '2013-12-11'), ('903.154.850-27', '2008-05-20'), ('658.209.030-56', '2020-04-02'), ('771.871.230-35', '1998-01-12'), ('081.462.020-55', '2021-09-22'), ('984.041.860-22', '2010-10-20'), ('815.607.820-99', '2020-03-08'), ('545.437.210-20', '2001-01-13'), ('501.944.720-00', '2012-05-20');
-insert into ESCOLARIDADES(nivel, descricao) values ('Educação infantil', 'Educação infantil'), ('Ensino fundamental', 'Ensino fundamental'), ('Ensino médio', 'Ensino médio'), ('Educação superior', 'Ciência da computação'), ('Educação superior', 'Administração'), ('Educação superior', 'Psicologia'), ('Educação superior', 'Educação Física'), ('Educação superior', 'Ciências Contábeis'), ('Educação superior', 'Veterinária'), ('Educação superior', 'Economia');
+insert into ESCOLARIDADES(nivel, descricao) values 
+ ('Educação infantil', 'Educação infantil'), ('Ensino fundamental', 'Ensino fundamental'), ('Ensino médio', 'Ensino médio'),
+ ('Educação superior', 'Ciência da computação'), ('Educação superior', 'Administração'), ('Educação superior', 'Psicologia'), 
+ ('Educação superior', 'Educação Física'), ('Educação superior', 'Ciências Contábeis'), ('Educação superior', 'Veterinária'), 
+ ('Educação superior', 'Economia');
 insert into HORARIOS(tipo, entrada, saida, horas_diarias) values ('parcial vespertino', '12:00:00', '18:00:00', 6), ('parcial noturno', '18:00:00', '00:00:00', 6), ('parcial matutino', '06:00:00', '12:00:00', 6), ('parcial madrugada', '00:00:00', '06:00:00', 6), ('integral', '09:00:00', '18:00:00', 8), ('meio parcial vespertino','12:00:00', '18:00:00', 3), ('meio parcial noturno','18:00:00', '00:00:00', 3), ('meio parcial matutino','06:00:00', '12:00:00', 3), ('meio parcial madrugada','00:00:00', '06:00:00', 3);
 insert into HORARIOS(tipo, horas_diarias) values ('plantao', 6);
 insert into FUNCIONARIOS(CPF, salario, id_contrato, horario) values 
 ('603.692.510-75', 9519, '5527767', 'plantao'), ('975.550.190-86', 9608, '8410274', 'plantao'), ('321.211.500-99', 9036, '2141783', 'parcial vespertino'), ('861.771.370-40', 9092, '7957405', 'parcial vespertino'),('377.906.230-52', 9718, '8331232', 'parcial matutino'), ('780.800.880-04', 9042, '5144748', 'parcial matutino'),('411.051.390-18', 9960, '8699871', 'integral'),('184.539.840-85', 9139, '3104405', 'integral'), ('879.648.640-68', 9697, '7072895', 'parcial noturno'), ('898.249.650-50', 9728, '2186583', 'parcial noturno'), 
 ('597.311.490-23', 4842, '2322144', 'parcial vespertino'), ('879.881.640-31', 4836, '1765653', 'parcial noturno'), ('402.483.860-18', 4602, '4892119', 'parcial matutino'), ('821.376.810-80', 4294, '1791288', 'parcial madrugada'), ('787.535.580-06', 4858, '7319102', 'integral'), ('485.110.080-98', 4069, '6930601', 'meio parcial vespertino'), ('718.199.680-06', 4529, '4755052', 'meio parcial noturno'), ('465.981.690-70', 4455, '0918094', 'meio parcial matutino'), ('287.023.050-89', 4193, '4681803', 'plantao'), ('501.259.410-05', 4382, '0558604', 'plantao');
-insert into FUNCIONARIO_FORMACAO(CPF, formacao) values ('603.692.510-75',''), ('975.550.190-86',''), ('321.211.500-99',''), ('861.771.370-40',''), ('377.906.230-52',''), ('780.800.880-04',''), ('411.051.390-18',''),('184.539.840-85',''), ('879.648.640-68',''), ('898.249.650-50','');
+insert into FUNCIONARIO_FORMACAO(CPF, formacao) values 
+('603.692.510-75','Ciência da computação'), ('975.550.190-86','Administração'), ('321.211.500-99','Ciências Contábeis'), 
+('861.771.370-40','Educação Física'), ('377.906.230-52','Ensino médio'), ('780.800.880-04','Psicologia'), 
+('411.051.390-18','Ciência da computação'),('184.539.840-85','Economia'), ('879.648.640-68','Psicologia'),
+('898.249.650-50','Administração'), ('898.249.650-50','Ciências Contábeis');
 insert into GERENTES(CPF) values ('603.692.510-75'), ('975.550.190-86'), ('321.211.500-99'), ('861.771.370-40'), ('377.906.230-52'), ('780.800.880-04'), ('411.051.390-18'),('184.539.840-85'), ('879.648.640-68'), ('898.249.650-50');
 update FUNCIONARIOS set gerente = '603.692.510-75' where CPF = '597.311.490-23';
 update FUNCIONARIOS set gerente = '603.692.510-75' where CPF = '879.881.640-31';
