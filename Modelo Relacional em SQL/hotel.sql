@@ -108,18 +108,18 @@ foreign key (predio, andar, numero) references QUARTOS(predio, andar, numero)
 
 create table MOVEIS(
 ID integer primary key,
-foreign key (ID) references MOBILIA(ID)
+foreign key (ID) references MOBILIA(ID),
 reclamacoes integer,
 ultima_manutencao date,
-tipo varchar(40),
+tipo varchar(40)
 );
 
 create table ELETRODOMESTICOS(
 ID integer primary key,
-foreign key (ID) references MOBILIA(ID)
+foreign key (ID) references MOBILIA(ID),
 consumo_energetico float,
 durabilidade_estimada integer,
-modelo varchar(60),
+modelo varchar(60)
 );
 
 create table RESERVAS(
