@@ -32,7 +32,7 @@ horas_diarias integer not null
 );
 
 create table FUNCIONARIOS(
-CPF char(14),
+CPF char(14) primary key,
 foreign key (CPF) references PESSOAS(CPF) on update cascade on delete cascade,
 salario float,
 id_contrato char(7) unique,
@@ -107,19 +107,19 @@ foreign key (predio, andar, numero) references QUARTOS(predio, andar, numero)
 );
 
 create table MOVEIS(
+ID integer primary key,
+foreign key (ID) references MOBILIA(ID)
 reclamacoes integer,
 ultima_manutencao date,
 tipo varchar(40),
-ID integer,
-foreign key (ID) references MOBILIA(ID)
 );
 
 create table ELETRODOMESTICOS(
+ID integer primary key,
+foreign key (ID) references MOBILIA(ID)
 consumo_energetico float,
 durabilidade_estimada integer,
 modelo varchar(60),
-ID integer,
-foreign key (ID) references MOBILIA(ID)
 );
 
 create table RESERVAS(
