@@ -111,8 +111,17 @@ insert into QUARTOS(predio, andar, numero, categoria) values
  (2, 3, 1, 'Deluxe Solteiro'), (2, 3, 2, 'Deluxe Duplo'), 
  (1, 4, 1, 'Deluxe Casal');
 insert into MOBILIA(vendedor, aquisicao, predio, andar, numero) values 
-('Colombo', '2022-04-23', 1, 4, 1), ('Casas Bahia', '2021-10-05', 3, 2, 1), ('Ortobom', '2022-04-22', 1, 1, 2), ('Magazine Luiza', '2021-01-17', 4, 1, 2), ('Americanas', '2021-04-07', 2, 2, 3), ('Leroy Merlin', '2021-02-24', 2, 2, 1), ('Havan', '2020-06-18', 1, 3, 2), ('Leroy Merlin', '2020-11-19', 4, 2, 3), ('Mobly', '2020-09-19'2, 3, 2), ('Colombo', '2021-10-24', 2, 3, 1), 
-('Philco', '2021-10-24', 5, 1, 1), ('Toshiba', '2022-04-04', 1, 2, 1), ('Magazine Luiza', '2021-12-19', 2, 3, 1), ('Americanas', '2022-01-26', 1, 2, 1), ('Amazon', '2022-02-07', 1, 4, 1), ('Samsung', '2022-02-21',2, 3, 2), ('Philips', '2022-05-22', 4, 2, 1), ('Sony', '2021-10-24', 5, 1, 1), ('Panasonic', '2022-01-22', 1, 3, 1), ('LG', '2021-12-28', 3, 2, 3);
+('Colombo', '2022-04-23', 1, 4, 1), ('Casas Bahia', '2021-10-05', 3, 2, 1), 
+('Ortobom', '2022-04-22', 1, 1, 2), ('Magazine Luiza', '2021-01-17', 4, 1, 2), 
+('Americanas', '2021-04-07', 2, 2, 3), ('Leroy Merlin', '2021-02-24', 2, 2, 1), 
+('Havan', '2020-06-18', 1, 3, 2), ('Leroy Merlin', '2020-11-19', 4, 2, 3), 
+('Mobly', '2020-09-19', 2, 3, 2), ('Colombo', '2021-10-24', 2, 3, 1),
+
+('Philco', '2021-10-24', 5, 1, 1), ('Toshiba', '2022-04-04', 1, 2, 1),
+('Magazine Luiza', '2021-12-19', 2, 3, 1), ('Americanas', '2022-01-26', 1, 2, 1),
+('Amazon', '2022-02-07', 1, 4, 1), ('Samsung', '2022-02-21',2, 3, 2),
+('Philips', '2022-05-22', 4, 2, 1), ('Sony', '2021-10-24', 5, 1, 1), 
+('Panasonic', '2022-01-22', 1, 3, 1), ('LG', '2021-12-28', 3, 2, 3);
 insert into MOVEIS(ID, reclamacoes, ultima_manutencao, tipo) values 
 (1, 0, '2022-06-11', 'Sofá'), (2, 1, '2022-05-03', 'Cama'), (3, 1, '2022-05-02', 'Cama'), (4, 2, '2022-03-03', 'Cadeira'), (5, 3, '2021-12-19', 'Mesa'), (6, 2, '2021-12-23', 'Mesa'), (7, 1, '2022-03-27', 'Cabeceira'), (8, 3, '2021-12-18', 'Estante'), (9, 0, '2022-06-03', 'Sofá'), (10, 1, '2022-01-09', 'Armário');
 insert into ELETRODOMESTICOS(ID, consumo_energetico, durabilidade_estimada, modelo) values 
