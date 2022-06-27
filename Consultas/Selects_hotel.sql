@@ -95,7 +95,6 @@ and Q.categoria = 'Deluxe Casal');
 
 
 -- Consulta 7:
-
 select P.nome, C.CPF
 from PESSOAS P natural join CLIENTES C
 where C.CPF not in 
@@ -112,6 +111,8 @@ and A.CPF = '402.483.860-18');
 -- não foram atendidos por um atentente arbitrário,
 -- nesse caso o de cpf '402.483.860-18'
 
+
+
 -- Consulta 8:
 select P1.nome, C.CPF 
 from PESSOAS P1, CLIENTES C
@@ -125,6 +126,8 @@ and R.predio = 1);
 -- nunca reservaram um quarto em um prédio qualquer,
 -- com esse caso sendo o prédio de ID 1
 
+
+
 -- Consulta 9:
 select Q.predio, Q.andar, Q.numero
 from QUARTOS Q
@@ -135,6 +138,8 @@ where A.CPF = '402.483.860-18');
 -- Descrição: Essa consulta retorna os quartos que nunca
 -- foram reservados por algum atendente arbitrário,
 -- nesse caso o de cpf '402.483.860-18'
+
+
 
 -- Consulta 10:
 select P1.nome, P1.CPF
