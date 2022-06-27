@@ -73,7 +73,7 @@ update FUNCIONARIOS set gerente = '898.249.650-50' where CPF = '411.051.390-18';
 update FUNCIONARIOS set gerente = '898.249.650-50' where CPF = '184.539.840-85';
 update FUNCIONARIOS set gerente = '898.249.650-50' where CPF = '879.648.640-68';
 
-insert into ATENDENTES(CPF, avaliacao) values ('597.311.490-23', 2.43), ('879.881.640-31', 2.65), ('402.483.860-18', 4.66), ('821.376.810-80', 2.65), ('787.535.580-06', 4.42), ('485.110.080-98', 4.89), ('718.199.680-06', 1.72), ('465.981.690-70', 1.54), ('287.023.050-89', 4.58), ('501.259.410-05', 4.19);
+insert into ATENDENTES(CPF, avaliacao) values ('597.311.490-23', 2.43), ('879.881.640-31', 2.65), ('402.483.860-18', 4.66), ('821.376.810-80', 2.65), ('787.535.580-06', 4.42), ('485.110.080-98', 5), ('718.199.680-06', 1.72), ('465.981.690-70', 1.54), ('287.023.050-89', 4.58), ('501.259.410-05', 4.19);
 insert into PREDIOS (INAUGURACAO, ULTIMO_LAUDO, gerente) values ('1956-07-29', '2021-08-19', '603.692.510-75');
 insert into PREDIOS (INAUGURACAO, ULTIMO_LAUDO, gerente) values ('1958-12-07', '2021-09-30', '603.692.510-75');
 insert into PREDIOS (INAUGURACAO, ULTIMO_LAUDO, gerente) values ('1963-08-21', '2022-03-19', '975.550.190-86');
