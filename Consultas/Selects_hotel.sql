@@ -2,11 +2,12 @@
 
 
 -- Consulta 1:
-select distinct (P1.nome , G.CPF)
+select P1.nome , G.CPF, P2.CPF
 from PESSOAS P1, FUNCIONARIOS F1, GERENTES G, 
 PESSOAS P2, FUNCIONARIOS F2, ATENDENTES A
 where P1.CPF = F1.CPF and F1.CPF = G.CPF
 and P2.CPF = F2.CPF and F2.CPF = A.CPF
+and F2.gerente = P1.CPF
 and A.avaliacao = 5.00;
 -- Descrição: Essa consulta retorna um gerente que 
 -- gerencia um funcionário atendente que possui 
@@ -15,7 +16,7 @@ and A.avaliacao = 5.00;
 
 
 -- Consulta 2:
-select distinct (P.nome, P.CPF )
+select P.nome, P.CPF
 from PESSOAS P, CLIENTES C, RESERVAS R,
 MOBILIA M 
 where P.CPF = C.CPF
@@ -29,9 +30,9 @@ and M.vendedor = 'Leroy Merlin';
 
 
 -- Consulta 3:
-select distinct (P.nome, P.CPF)
-from from PESSOAS P, CLIENTES C, RESERVAS R, 
-QUARTOS Q, 
+select P.nome, P.CPF
+from PESSOAS P, CLIENTES C, RESERVAS R, 
+QUARTOS Q
 where P.CPF = C.CPF
 and R.cliente = C.CPF
 and Q.predio = R.predio and Q.andar = R.andar and Q.numero = R.quarto
@@ -43,7 +44,7 @@ and Q.categoria = 'Duplo';
 
 
 -- Consulta 4:
-select distinct (P2.nome , C.CPF)
+select P2.nome , C.CPF
 from PESSOAS P1, FUNCIONARIOS F1, GERENTES G, 
 PESSOAS P2, CLIENTES C, 
 RESERVAS R, 
@@ -60,7 +61,7 @@ and P.gerente = '603.692.510-75';
 
 
 -- Consulta 5:
-select distinct (P1.nome, C.CPF)
+select P1.nome, C.CPF
 from PESSOAS P1, CLIENTES C,
 PESSOAS P2, FUNCIONARIOS F, ATENDENTES A,
 RESERVAS R
@@ -75,10 +76,10 @@ and A.avaliacao < (select avg(avaliacao) from ATENDENTES);
 
 
 -- Consulta 6:
-select distinct (P1.nome, A.CPF)
+select P1.nome, A.CPF
 from PESSOAS P1, FUNCIONARIOS F, ATENDENTES A,
 RESERVAS R, PREDIOS P
-where and P1.CPF = F.CPF and F.CPF = A.CPF
+where P1.CPF = F.CPF and F.CPF = A.CPF
 and A.CPF = R.atendente
 and R.predio = P.ID
 and P.ID in 
@@ -94,13 +95,13 @@ and Q.categoria = 'Deluxe Casal');
 
 
 -- Consulta 7:
-select distinct (P.nome, C.CPF) from 
-PESSOAS P, CLIENTES C
-where P.CPF = C.CPF
-and C.CPF not in 
-(select C.CPF 
+
+select P.nome, C.CPF
+from PESSOAS P natural join CLIENTES C
+where C.CPF not in 
+(select C1.CPF 
 from PESSOAS P1, CLIENTES C1, 
-PESSOAS P2, FUNCIONARIOS F, ATENDENTES A
+PESSOAS P2, FUNCIONARIOS F, ATENDENTES A,
 RESERVAS R 
 where P1.CPF = C1.CPF
 and P2.CPF = F.CPF and A.CPF = F.CPF
@@ -112,30 +113,29 @@ and A.CPF = '402.483.860-18');
 -- nesse caso o de cpf '402.483.860-18'
 
 -- Consulta 8:
-select distinct (P1.nome, C.CPF) 
+select P1.nome, C.CPF 
 from PESSOAS P1, CLIENTES C
 where P1.CPF = C.CPF
 and C.CPF not in 
 (select C1.CPF 
 from CLIENTES C1, RESERVAS R
 where C1.CPF = R.cliente
-and R.predio = 1;)
+and R.predio = 1);
 -- Descrição: Essa consulta retorna os clientes que
 -- nunca reservaram um quarto em um prédio qualquer,
 -- com esse caso sendo o prédio de ID 1
 
 -- Consulta 9:
-select distinct (Q.predio, Q.andar, Q.numero) 
+select Q.predio, Q.andar, Q.numero
 from QUARTOS Q
 where (Q.predio, Q.andar, Q.numero) not in
-(select R.predio, R.andar, R.numero
+(select R.predio, R.andar, R.quarto
 from PESSOAS P natural join FUNCIONARIOS F natural join ATENDENTES A natural join RESERVAS R 
 where A.CPF = '402.483.860-18');
 -- Descrição: Essa consulta retorna os quartos que nunca
 -- foram reservados por algum atendente arbitrário,
 -- nesse caso o de cpf '402.483.860-18'
 
---gerentes que gerenciam prédios que cliente x esteve
 -- Consulta 10:
 select P1.nome, P1.CPF
 from PESSOAS P1 natural join FUNCIONARIOS F natural join GERENTES G,
@@ -145,7 +145,7 @@ PREDIOS P
 where C.CPF = R.cliente
 and P.ID = R.predio
 and P1.CPF = P.gerente
-and p1.CPF = '984.041.860-22';
+and P2.CPF = '984.041.860-22';
 -- Descrição: Essa consulta retorna os gerentes que 
 -- gerenciam os prédios em que um cliente qualquer
 -- esteve, nesse caso o de cpf '984.041.860-22'

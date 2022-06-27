@@ -1,6 +1,6 @@
 -- disponível em https://github.com/Fgarm/database-1-project/
 
-drop database hotel_trabalho_guilherme;
+drop database if exists hotel_trabalho_guilherme;
 create database hotel_trabalho_guilherme;
 use hotel_trabalho_guilherme;
 
